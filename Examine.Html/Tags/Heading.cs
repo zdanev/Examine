@@ -1,4 +1,4 @@
-namespace Examine.Html
+namespace Examine.Html.Tags
 {
     public abstract class Heading : Tag, IBodyElement
     {

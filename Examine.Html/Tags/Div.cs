@@ -1,4 +1,4 @@
-namespace Examine.Html
+namespace Examine.Html.Tags
 {
     public class Div : BodyElement
     {
@@ -9,6 +9,6 @@ namespace Examine.Html
 
     public static partial class Fluent
     {
-        public static Div Div(params BodyElement[] content) => new Div(content);
+        public static Div Div(params IBodyElement[] content) => new Div(content);
     }
 }

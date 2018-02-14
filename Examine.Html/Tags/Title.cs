@@ -1,6 +1,6 @@
-using static Examine.Html.Fluent;
+using static Examine.Html.Tags.Fluent;
 
-namespace Examine.Html
+namespace Examine.Html.Tags
 {
     public class Title : Tag, IHeadElement
     {

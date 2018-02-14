@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Examine.Html
+namespace Examine.Html.Tags
 {
     public interface IHtmlElement
     {

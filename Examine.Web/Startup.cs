@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Examine.Web.Data;
 using Examine.Web.Models;
 using Examine.Web.Services;
+using Examine.Core.Components;
 
 namespace Examine.Web
 {
@@ -35,6 +36,8 @@ namespace Examine.Web
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+
+            services.AddTransient<TestComponent>();
 
             services.AddMvc();
         }
