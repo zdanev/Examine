@@ -36,5 +36,13 @@ namespace Examine.Web.Controllers
 
             return Content(html.Render(), "text/html");
         }
+
+        [HttpPost, Route("/")]
+        public IActionResult Submit()
+        {
+            var answers = Request.Form["answer"];
+
+            return Content("POST " + answers);
+        }
     }
 }

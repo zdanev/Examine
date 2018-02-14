@@ -13,15 +13,21 @@ namespace Examine.Html.Renderers
             var content = new List<IBodyElement>();
             
             content.Add(H3(test.Name));
+
             content.AddRange(test.Questions.Select(question => question.Render()));
 
-            return Div(content.ToArray());
+            content.Add(Div(
+                BR(),
+                SubmitButton("Submit")));
+
+            return Form(FormMethod.Post, content.ToArray());
         }
 
         public static IBodyElement Render(this Question question)
         {
             return Div(
-                H4(question.Text)
+                H4(question.Text),
+                Input(InputType.Text).Attr("name", "answer")                
             );
         }
     }
