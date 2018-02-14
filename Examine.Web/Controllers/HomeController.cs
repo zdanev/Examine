@@ -9,16 +9,21 @@ namespace Examine.Web.Controllers
     public class HomeController : Controller
     {
         private readonly TestComponent _testComponent;
+        private readonly ArithmeticsTestComponent _arithmeticsTestComponent;
 
-        public HomeController(TestComponent testComponent)
+        public HomeController(
+            TestComponent testComponent,
+            ArithmeticsTestComponent arithmeticsTestComponent)
         {
             _testComponent = testComponent;
+            _arithmeticsTestComponent = arithmeticsTestComponent;
         }
 
         public IActionResult Index()
         {
-            var testId = Guid.NewGuid();
-            var test = _testComponent.GetTest(testId);
+            // var testId = Guid.NewGuid();
+            // var test = _testComponent.GetTest(testId);
+            var test = _arithmeticsTestComponent.GenerateTest(5);
 
             var html = HtmlPage(
                 Html_(

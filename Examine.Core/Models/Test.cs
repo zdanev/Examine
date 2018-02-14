@@ -6,6 +6,6 @@ namespace Examine.Core.Models
     {
         public string Name { get; set; }
 
-        public ICollection<Question> Questions { get; set; }
+        public ICollection<Question> Questions { get; set; } = new List<Question>();
     }
 }

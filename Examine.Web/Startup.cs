@@ -38,6 +38,7 @@ namespace Examine.Web
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddTransient<TestComponent>();
+            services.AddTransient<ArithmeticsTestComponent>();
 
             services.AddMvc();
         }
