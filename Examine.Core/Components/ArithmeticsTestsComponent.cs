@@ -1,10 +1,15 @@
 using System;
+using Examine.Core.Data;
 using Examine.Core.Models;
 
 namespace Examine.Core.Components
 {
-    public class ArithmeticsTestComponent
+    public class ArithmeticsTestComponent : TestComponent
     {
+        public ArithmeticsTestComponent(IRepository<Test> testRepo) : base(testRepo)
+        {          
+        }
+
         public Test GenerateTest(int count)
         {
             var rnd = new Random();
@@ -25,7 +30,15 @@ namespace Examine.Core.Components
                 });
             }
 
+            _testRepo.Add(test);
+
             return test;
+        }
+
+        public void ScoreTest(Guid testId, string[] answers)
+        {
+            var test = _testRepo.Get(testId);
+
         }
     }
 }

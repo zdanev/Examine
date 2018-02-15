@@ -8,14 +8,14 @@ namespace Examine.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly TestComponent _testComponent;
+        // private readonly TestComponent _testComponent;
         private readonly ArithmeticsTestComponent _arithmeticsTestComponent;
 
         public HomeController(
-            TestComponent testComponent,
+            // TestComponent testComponent,
             ArithmeticsTestComponent arithmeticsTestComponent)
         {
-            _testComponent = testComponent;
+            //_testComponent = testComponent;
             _arithmeticsTestComponent = arithmeticsTestComponent;
         }
 
@@ -40,7 +40,10 @@ namespace Examine.Web.Controllers
         [HttpPost, Route("/")]
         public IActionResult Submit()
         {
+            var id = Request.Form["id"];
             var answers = Request.Form["answer"];
+
+            _arithmeticsTestComponent.ScoreTest(Guid.Parse(id), answers);
 
             return Content("POST " + answers);
         }

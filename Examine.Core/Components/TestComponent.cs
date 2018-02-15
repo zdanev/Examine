@@ -1,10 +1,18 @@
 using System;
 using Examine.Core.Models;
+using Examine.Core.Data;
 
 namespace Examine.Core.Components 
 {
     public class TestComponent
     {
+        protected readonly IRepository<Test> _testRepo;
+
+        public TestComponent(IRepository<Test> testRepo)
+        {
+            _testRepo = testRepo;
+        }
+
         public Test GetTest(Guid testId)
         {
             return new Test

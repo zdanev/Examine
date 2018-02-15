@@ -14,6 +14,8 @@ namespace Examine.Html.Renderers
             
             content.Add(H3(test.Name));
 
+            content.Add(Hidden("id", test.Id.ToString()));
+
             content.AddRange(test.Questions.Select(question => question.Render()));
 
             content.Add(Div(

@@ -12,6 +12,8 @@ using Examine.Web.Data;
 using Examine.Web.Models;
 using Examine.Web.Services;
 using Examine.Core.Components;
+using Examine.Core.Data;
+using Examine.Core.Models;
 
 namespace Examine.Web
 {
@@ -37,7 +39,8 @@ namespace Examine.Web
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
-            services.AddTransient<TestComponent>();
+            // services.AddTransient<TestComponent>();
+            services.AddTransient<IRepository<Test>, MemRepo<Test>>();
             services.AddTransient<ArithmeticsTestComponent>();
 
             services.AddMvc();
