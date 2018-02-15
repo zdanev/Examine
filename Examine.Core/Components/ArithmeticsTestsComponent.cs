@@ -25,8 +25,9 @@ namespace Examine.Core.Components
                 test.Questions.Add(new Question
                 {
                     Id = Guid.NewGuid(),
+                    DisplayOrder = i,
                     Text = Arithmetics.Expr(a, b, o),
-                    Answer = Arithmetics.Calc(a, b, o).ToString()
+                    CorrectAnswer = Arithmetics.Calc(a, b, o).ToString()
                 });
             }
 
@@ -35,10 +36,19 @@ namespace Examine.Core.Components
             return test;
         }
 
-        public void ScoreTest(Guid testId, string[] answers)
+        public Test ScoreTest(Guid testId, string[] answers)
         {
             var test = _testRepo.Get(testId);
 
+            if (test == null) throw new InvalidOperationException("test not found!");
+
+            foreach (var question in test.Questions)
+            {
+                question.Answer = answers[question.DisplayOrder];
+                question.IsAnswerCorrect = question.Answer.Trim().ToLower() == question.CorrectAnswer.Trim().ToLower();
+            }
+
+            return test;
         }
     }
 }

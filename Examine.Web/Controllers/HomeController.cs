@@ -29,7 +29,7 @@ namespace Examine.Web.Controllers
                 Html_(
                     Head(),
                     Body(
-                        test.Render()
+                        TestRenderer.Render(test)
                     )
                 )
             );
@@ -43,9 +43,18 @@ namespace Examine.Web.Controllers
             var id = Request.Form["id"];
             var answers = Request.Form["answer"];
 
-            _arithmeticsTestComponent.ScoreTest(Guid.Parse(id), answers);
+            var test = _arithmeticsTestComponent.ScoreTest(Guid.Parse(id), answers);
 
-            return Content("POST " + answers);
+            var html = HtmlPage(
+                Html_(
+                    Head(),
+                    Body(
+                        TestRenderer.RenderScore(test)
+                    )
+                )
+            );
+
+            return Content(html.Render(), "text/html");
         }
     }
 }

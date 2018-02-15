@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Examine.Core.Models
 {
@@ -7,5 +8,7 @@ namespace Examine.Core.Models
         public string Name { get; set; }
 
         public ICollection<Question> Questions { get; set; } = new List<Question>();
+
+        public int Score => Questions.Count(q => q.IsAnswerCorrect);
     }
 }
