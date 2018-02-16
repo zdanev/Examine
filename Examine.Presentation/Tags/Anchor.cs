@@ -1,6 +1,6 @@
-using static Examine.Html.Tags.Fluent;
+using static Examine.Presentation.Tags.Fluent;
 
-namespace Examine.Html.Tags
+namespace Examine.Presentation.Tags
 {
     public class Anchor : BodyElement
     {

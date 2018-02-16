@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Examine.Html.Tags
+namespace Examine.Presentation.Tags
 {
     public class Literal : BodyElement
     {

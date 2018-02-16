@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Examine.Core\Examine.Core.csproj" />
-    <ProjectReference Include="..\Examine.Html\Examine.Html.csproj" />
+    <ProjectReference Include="..\Examine.Presentation\Examine.Presentation.csproj" />
   </ItemGroup>
 
 </Project>

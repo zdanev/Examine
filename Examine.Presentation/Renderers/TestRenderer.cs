@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Examine.Core.Models;
-using Examine.Html.Tags;
-using static Examine.Html.Tags.Fluent;
+using Examine.Presentation.Tags;
+using static Examine.Presentation.Tags.Fluent;
 
-namespace Examine.Html.Renderers
+namespace Examine.Presentation.Renderers
 {
     public static class TestRenderer
     {

@@ -1,4 +1,4 @@
-namespace Examine.Html.Tags
+namespace Examine.Presentation.Tags
 {
     public interface IBodyElement : IHtmlElement
     {
