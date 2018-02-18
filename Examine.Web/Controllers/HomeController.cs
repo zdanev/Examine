@@ -1,7 +1,7 @@
 ﻿using System;
-using Examine.Core.Components;
-using Examine.Presentation.Renderers;
 using Microsoft.AspNetCore.Mvc;
+using Examine.Core.Components;
+using Examine.Presentation.Views;
 using static Examine.Presentation.Controls.Fluent;
 
 namespace Examine.Web.Controllers
@@ -20,9 +20,9 @@ namespace Examine.Web.Controllers
         {
             var test = _arithmeticsTestComponent.GenerateTest(5);
 
-            var html = WebApp("Examine", TestRenderer.Render(test));
+            var app =  new ExamineWebApp(new TestView(test));
 
-            return Content(html.Render(), "text/html");
+            return Content(app.Render(), "text/html");
         }
 
         [HttpPost, Route("/")]
@@ -33,9 +33,9 @@ namespace Examine.Web.Controllers
 
             var test = _arithmeticsTestComponent.ScoreTest(Guid.Parse(id), answers);
 
-            var html = WebApp("Examine", TestRenderer.RenderScore(test));
+            var app = new ExamineWebApp(new TestScoreView(test));
 
-            return Content(html.Render(), "text/html");
+            return Content(app.Render(), "text/html");
         }
     }
 }

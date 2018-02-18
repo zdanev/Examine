@@ -38,6 +38,7 @@ namespace Examine.Presentation.Controls
     }
     public static partial class Fluent
     {
-        public static WebApp WebApp(string title, params IBodyElement[] content) => new WebApp(title, content);
+        // public static WebApp WebApp(string title, params IBodyElement[] content) => new WebApp(title, content);
+        public static WebApp WebApp(string title, View view) => new WebApp(title, view);
     }
 }
