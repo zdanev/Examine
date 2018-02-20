@@ -8,7 +8,7 @@ namespace Examine.Presentation.Views
     {
         public QuestionView(Question question)
         {
-            Content.Add(new TextControl(
+            Content.Add(TextControl(
                 id: $"q{question.DisplayOrder + 1}", 
                 name: "answer", 
                 label: $"{question.DisplayOrder + 1}: {question.Text}"));

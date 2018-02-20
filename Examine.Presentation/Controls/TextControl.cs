@@ -19,4 +19,11 @@ namespace Examine.Presentation.Controls
             this.Content.Add(Input(InputType.Text).Id(id).Attr("name", name).Class("form-control"));
         }
     }
+
+    public static partial class Fluent
+    {
+        public static TextControl TextControl(string id, string label) => new TextControl(id, id, label);
+
+        public static TextControl TextControl(string id, string name, string label) => new TextControl(id, name, label);
+    }
 }
