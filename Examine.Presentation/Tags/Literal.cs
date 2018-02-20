@@ -17,15 +17,14 @@ namespace Examine.Presentation.Tags
             Value = value;
         }
 
-        public override string Render(StringBuilder sb = null)
+        public override string Render()
         {
-            var returnResult = sb == null;
+            return Value;
+        }
 
-            sb = sb ?? new StringBuilder();
-
+        public override void RenderTo(StringBuilder sb)
+        {
             sb.Append(Value);
-
-            return returnResult ? sb.ToString() : null;
         }
 
         public static implicit operator Literal(string value)

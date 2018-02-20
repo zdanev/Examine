@@ -12,6 +12,8 @@ namespace Examine.Presentation.Tags
 
         List<IHtmlElement> Content { get; }
 
-        string Render(StringBuilder sb = null);
+        // string Render();
+
+        void RenderTo(StringBuilder sb);
     }
 }

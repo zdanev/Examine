@@ -22,7 +22,7 @@ namespace Examine.Web.Controllers
 
             var app =  new ExamineWebApp(new TestView(test));
 
-            return Content(app.Render(), "text/html");
+            return Content(app, "text/html");
         }
 
         [HttpPost, Route("/")]
@@ -35,7 +35,7 @@ namespace Examine.Web.Controllers
 
             var app = new ExamineWebApp(new TestScoreView(test));
 
-            return Content(app.Render(), "text/html");
+            return Content(app, "text/html");
         }
     }
 }

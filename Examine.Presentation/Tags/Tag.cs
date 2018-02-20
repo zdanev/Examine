@@ -28,12 +28,8 @@ namespace Examine.Presentation.Tags
             Content.AddRange(content);
         }
 
-        public virtual string Render(StringBuilder sb = null)
+        public virtual void RenderTo(StringBuilder sb)
         {
-            var returnResult = sb == null;
-
-            sb = sb ?? new StringBuilder();
-
             sb.Append($"<{Name}");
 
             foreach (var attr in Attributes)
@@ -47,7 +43,7 @@ namespace Examine.Presentation.Tags
 
                 foreach (var element in Content)
                 {
-                    sb.Append(element.Render(sb));
+                    element.RenderTo(sb);
                 }
 
                 if (!DoNotClose)
@@ -66,9 +62,19 @@ namespace Examine.Presentation.Tags
                     sb.Append($"/>");
                 }
             }
-
-            return returnResult ? sb.ToString() : null;
         }
+
+        public virtual string Render()
+        {
+            var sb = new StringBuilder();
+            this.RenderTo(sb);
+            return sb.ToString();
+        }
+
+        public static implicit operator string(Tag tag)
+        {
+            return tag.Render();
+        }      
     }
 
     public static partial class Fluent
@@ -101,6 +107,6 @@ namespace Examine.Presentation.Tags
             }
 
             return tag;
-        }      
+        }
     }
 }
